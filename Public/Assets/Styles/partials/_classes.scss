@@ -1,0 +1,53 @@
+.modalOverlay {
+    position:fixed;
+    top:0;right:0;bottom:0;left:0;
+    z-index:99999;
+    &:before {
+        content:'';
+        display:block;
+        position: absolute;
+        top:0;right:0;bottom:0;left:0;
+        opacity: 0.8;
+        background: #000;
+    }
+    .modalBox {
+        width: 300px;
+        margin: 0 auto;
+        background: white;
+        padding: 1rem;
+        position:relative;
+        top: 15rem;
+        h6 {
+            position: absolute;
+            top:0;
+            right:0;
+            left:0;
+            height: 1.75rem;
+            background: #666;
+            font: {
+                size: 1rem;
+            }
+            color:white;
+            padding: .25rem .5rem;
+        }
+        p {
+            margin: {
+                top: 2rem;
+                bottom: 1rem;
+            }
+        }
+        input {
+            display:block;
+            width: 100%;
+        }
+    }
+}
+
+.button {
+    display:inline-block;
+    background: #ccc;
+    color:black;
+    padding: .5rem;
+    margin: .25rem;
+    
+}

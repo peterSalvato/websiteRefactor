@@ -1,44 +1,48 @@
 <?php
+
 namespace App;
 
 use Spatie\YamlFrontMatter\YamlFrontMatter;
+use Parsedown;
 
 class JournalService
 {
     public static function loadAll(): array
     {
         $entries = [];
-        $files = glob(__DIR__ . '/../Journal/Entries/*.md');
 
-        foreach ($files as $file) {
-            $doc = YamlFrontMatter::parseFile($file);
-            $entries[] = [
-                'slug' => basename($file, '.md'),
-                'title' => $doc->matter('title') ?? '(Untitled)',
-                'date' => $doc->matter('date') ?? '',
-                'tags' => $doc->matter('tags') ?? [],
-                'html' => trim($doc->body()) // raw HTML body
-            ];
+        foreach (glob(__DIR__ . '/../Journal/Entries/*.md') as $file) {
+            $slug = basename($file, '.md');
+            $entry = self::loadEntry($slug);
+
+            if ($entry && ($entry['publish'] ?? true)) {
+                $entries[] = $entry;
+            }
         }
 
-        usort($entries, fn($a, $b) => strtotime($b['date']) <=> strtotime($a['date']));
+        // Sort newest first by timestamp
+        usort($entries, function ($a, $b) {
+            return ($b['timestamp'] ?? 0) <=> ($a['timestamp'] ?? 0);
+        });
+
         return $entries;
     }
 
-    public static function loadOne(string $slug): ?array
+    public static function loadEntry(string $slug): ?array
     {
-        $path = __DIR__ . "/../Journal/Entries/{$slug}.md";
+        $file = __DIR__ . "/../Journal/Entries/{$slug}.md";
 
-        if (!file_exists($path)) return null;
+        if (!file_exists($file)) {
+            return null;
+        }
 
-        $doc = YamlFrontMatter::parseFile($path);
+        $document = YamlFrontMatter::parseFile($file);
+        $parsedown = new Parsedown();
+        $bodyHtml = $parsedown->text($document->body());
 
-        return [
+        return $document->matter() + [
             'slug' => $slug,
-            'title' => $doc->matter('title') ?? '(Untitled)',
-            'date' => $doc->matter('date') ?? '',
-            'tags' => $doc->matter('tags') ?? [],
-            'html' => trim($doc->body()) // raw HTML body
+            'html' => $bodyHtml,
         ];
     }
 }

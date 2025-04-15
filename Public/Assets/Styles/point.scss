@@ -1,0 +1,72 @@
+@import "partials/_normalize.scss";
+
+@import "partials/_fonts.scss";
+@import "partials/_variables.scss";
+@import "partials/_mixins.scss";
+@import "partials/_classes.scss";
+
+// element and class styles: ;
+@import "partials/_baseStyles.scss";
+
+@import "partials/_layout.scss";
+
+::-moz-selection { /* Code for Firefox */
+    background-color: transparent;
+    color: #eee;
+}
+
+::selection {
+    background-color: transparent;
+    color: #eee;
+}
+
+.forTheCurious {
+    display:block;
+    width: 10rem;
+    color: transparent;
+    line-break:anywhere;
+    &::-moz-selection { /* Code for Firefox */
+        background-color: transparent;
+        
+        color: #666;
+    }
+    
+    &::selection {
+        background-color: transparent;
+        color: #666;
+        
+    }
+}
+
+body {
+    
+
+}
+
+header {
+    &:before {
+        content:'';
+        display:block;
+        position: absolute;
+        left: 1rem;
+        top: 3rem;
+        height: 11rem ;
+        width: 11rem;
+        background:url("/assets/images/psdotcom.png");
+        background: {
+            size: contain;
+            repeat: no-repeat;
+        }
+        transform: rotate(-3deg);
+        
+    }
+    .pageTitle {
+        padding:.25rem;
+    }    
+}
+
+#mainContent {
+    > span {
+       padding: .25rem; 
+    }
+}

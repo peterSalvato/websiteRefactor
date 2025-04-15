@@ -8,7 +8,7 @@
 
   <?php include __DIR__ . '/Header.php'; ?>
 
-  <nav>
+  <nav id="siteNav">
     <?php include __DIR__ . '/Nav.php'; ?>
   </nav>
 

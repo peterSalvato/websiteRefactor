@@ -1,12 +1,12 @@
 <article class="journal-entry">
-  <h2><?= htmlspecialchars($title) ?></h2>
+  <h2><?= htmlspecialchars($title ?? 'Untitled') ?></h2>
 
-  <?php if (!empty($date)): ?>
-    <p><small><?= date('F j, Y', strtotime($date)) ?></small></p>
+  <?php if (!empty($timestamp)): ?>
+    <p><small><?= date('F j, Y', $timestamp) ?></small></p>
   <?php endif; ?>
 
   <div class="entry-body">
-    <?= $html ?> <!-- This is now raw HTML content -->
+    <?= $html ?? '' ?>
   </div>
 
   <?php if (!empty($tags)): ?>

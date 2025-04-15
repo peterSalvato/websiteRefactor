@@ -10,6 +10,7 @@ return [
     'children' => [
       'Conceptual Projects' => [
         'url' => '?page=WorkshopConceptualProjects',
+        'attrs' => ' id="" class="conceptualProjects workgroup"',
         'children' => [
           'Photogeography' => '?page=Project&slug=ConceptualProjects/Photogeography',
           'Versograms'     => '?page=Project&slug=ConceptualProjects/Versograms'
@@ -17,6 +18,7 @@ return [
       ],
       'Case Studies' => [
         'url' => '?page=WorkshopCaseStudies',
+        'attrs' => ' id=""class="caseStudies workgroup"',
         'children' => [
           'Aiden Jae'  => '?page=Project&slug=CaseStudies/AidenJae',
           'Altrueism'  => '?page=Project&slug=CaseStudies/Altrueism',
@@ -25,9 +27,10 @@ return [
       ],
       'Artifacts' => [
         'url' => '?page=WorkshopArtifacts',
+        'attrs' => ' id="nav-" class="conceptualProjects workgroup" ',
         'children' => [
           'The Deep Cuts' => '?page=Project&slug=Artifacts/TheDeepCuts',
-          'Echo & Stone' => '?page=Project&slug=Artifacts/EchoAndBone'
+          'Echo & Bone' => '?page=Project&slug=Artifacts/EchoAndBone'
         ]
       ]
     ]
@@ -35,9 +38,10 @@ return [
 
   'Systems' => [
     'url' => '?page=Systems',
+    'attrs' => ' id="" class="systems workgroup" ',
     'children' => [
-      'Savepoint Protocol' => '?page=System&slug=SavepointProtocol',
-      'The Order of<br><span>the Ætherwright</span>' => '?page=System&slug=TheOrderOfTheAetherwright'
+      'Savepoint.Protocol' => '?page=System&slug=SavepointProtocol',
+      'The Order of<br>the Ætherwright' => '?page=System&slug=TheOrderOfTheAetherwright'
     ]
   ],
 
