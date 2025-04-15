@@ -1,0 +1,13 @@
+{
+    "name": "petersalvatodotcom/site",
+    "description": "website",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Peter Salvato"
+        }
+    ],
+    "require": {
+        "spatie/yaml-front-matter": "^2.1"
+    }
+}
