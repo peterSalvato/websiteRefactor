@@ -11,22 +11,22 @@ return [
       'Conceptual Projects' => [
         'url' => '?page=WorkshopConceptualProjects',
         'children' => [
-          'Photogeography' => '?page=Project&slug=Photogeography',
-          'Versograms'     => '?page=Project&slug=Versograms'
+          'Photogeography' => '?page=Project&slug=ConceptualProjects/Photogeography',
+          'Versograms'     => '?page=Project&slug=ConceptualProjects/Versograms'
         ]
       ],
       'Case Studies' => [
         'url' => '?page=WorkshopCaseStudies',
         'children' => [
-          'Aiden Jae'  => '?page=Project&slug=AidenJae',
-          'Altrueism'  => '?page=Project&slug=Altrueism',
-          'MathOnTape' => '?page=Project&slug=MathOnTape'
+          'Aiden Jae'  => '?page=Project&slug=CaseStudies/AidenJae',
+          'Altrueism'  => '?page=Project&slug=CaseStudies/Altrueism',
+          'MathOnTape' => '?page=Project&slug=CaseStudies/MathOnTape'
         ]
       ],
       'Artifacts' => [
         'url' => '?page=WorkshopArtifacts',
         'children' => [
-          'The Deep Cuts' => '?page=Project&slug=TheDeepCuts',
+          'The Deep Cuts' => '?page=Project&slug=Artifacts/TheDeepCuts',
           'Echo & Stone' => '?page=Project&slug=Artifacts/EchoAndBone'
         ]
       ]

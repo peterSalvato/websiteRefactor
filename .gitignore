@@ -1,1 +1,2 @@
 /vendor/
+echo ".petersalvatodotcom/" >> .gitignore
