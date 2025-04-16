@@ -1,7 +1,3 @@
-<?php if (!empty($error)): ?>
-  <p class="error"><?= htmlspecialchars($error) ?></p>
-<?php endif; ?>
-
 <?php if (!empty($entries)): ?>
   <ul class="journal-list">
     <?php foreach ($entries as $entry): ?>

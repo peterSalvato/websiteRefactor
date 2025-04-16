@@ -20,7 +20,6 @@ class JournalService
             }
         }
 
-        // Sort newest first by timestamp
         usort($entries, function ($a, $b) {
             return ($b['timestamp'] ?? 0) <=> ($a['timestamp'] ?? 0);
         });
@@ -28,21 +27,29 @@ class JournalService
         return $entries;
     }
 
+
     public static function loadEntry(string $slug): ?array
     {
         $file = __DIR__ . "/../Journal/Entries/{$slug}.md";
-
+    
         if (!file_exists($file)) {
             return null;
         }
-
+    
         $document = YamlFrontMatter::parseFile($file);
         $parsedown = new Parsedown();
         $bodyHtml = $parsedown->text($document->body());
-
-        return $document->matter() + [
-            'slug' => $slug,
+    
+        $matter = $document->matter();
+    
+        // 🔒 Force slug from filename — override frontmatter value if it exists
+        $matter['slug'] = $slug;
+    
+        return $matter + [
             'html' => $bodyHtml,
         ];
     }
+    
+
+
 }
